@@ -36,13 +36,16 @@ class OpenAICompatible(LLM):
 
     def get_response(self, user_message):
         self.add_message("user", user_message)
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=self.messages,
-            max_tokens=self.max_length,
-            temperature=self.temperature,
-        )
-        text = response.choices[0].message.content
+        for _ in range(3):  # Gemini は稀に本文が空で返る。1 件を最初からやり直すより呼び直しが安い
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=self.messages,
+                max_tokens=self.max_length,
+                temperature=self.temperature,
+            )
+            text = response.choices[0].message.content
+            if isinstance(text, str) and len(text) > 0:
+                break
         assert isinstance(text, str) and len(text) > 0, "empty response"
         self.add_message("assistant", text)
         usage = response.usage
