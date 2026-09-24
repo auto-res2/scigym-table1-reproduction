@@ -71,8 +71,9 @@ def main():
     pred = SBML(controller.final_sbml) if controller.final_evaluation else controller.incomplete_model
     _, pred_rp = extract_reaction_hashes(pred.model)
     (out / "reactions.json").write_text(json.dumps({
-        "missing": sorted(controller.evaluator.missing_rp_hashes),
-        "added": sorted(pred_rp - controller.evaluator.inco_rp_hashes),
+        # hash はプロセス内でしか一致しないタプル。集合の照合は同じプロセスの値だけで行うので文字列にして保存する
+        "missing": [str(h) for h in sorted(controller.evaluator.missing_rp_hashes)],
+        "added": [str(h) for h in sorted(pred_rp - controller.evaluator.inco_rp_hashes)],
         "input_tokens": llm.input_total_tokens,
         "output_tokens": llm.output_total_tokens,
     }))
