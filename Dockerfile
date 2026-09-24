@@ -5,9 +5,8 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
-# cmake / swig: python-libnuml, python-libcombine, python-libsedml は sdist からのビルドになる
 RUN apt-get update && apt-get install -y \
-    git curl make build-essential cmake swig zlib1g-dev libxml2-dev libbz2-dev \
+    git curl make build-essential libxrender1 libxext6 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=ghcr.io/astral-sh/uv:0.12.6@sha256:88bc6eb1ccd4b82efd0e1b530caffabddf50dc2bf612e66c14ea25b8ee8a4d3d /uv /usr/local/bin/uv
@@ -15,6 +14,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.12.6@sha256:88bc6eb1ccd4b82efd0e1b530caffabdd
 WORKDIR /workspace
 COPY pyproject.toml uv.lock ./
 RUN uv sync --locked --no-cache --group eval
+# tellurium.teconverters.convert_omex が import する libcombine の代用（OMEX は使わない。pyproject の exclude を参照）
+RUN echo "# stub for tellurium import; OMEX archives are never used here" > .venv/lib/python3.11/site-packages/libcombine.py
 ENV UV_NO_SYNC=1
 
 COPY . .

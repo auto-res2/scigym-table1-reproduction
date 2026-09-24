@@ -1,15 +1,22 @@
 """1 インスタンスを公式 Controller で解かせる。公式の履歴はクラス属性なので 1 件 1 プロセス。"""
 
+import ctypes
 import json
 import os
 import sys
+import sysconfig
 from pathlib import Path
 
-from openai import OpenAI
-from scigym.api import LLM
-from scigym.controller import Controller
-from scigym.data import SBML
-from scigym.eval.utils import extract_reaction_hashes
+# libroadrunner は libpython を動的に探すので、ローダのパスに無い環境（uv 管理の Python）では先読みする
+_libpython = f"{sysconfig.get_config_var('LIBDIR')}/libpython3.11.so.1.0"
+if os.path.exists(_libpython):
+    ctypes.CDLL(_libpython, mode=ctypes.RTLD_GLOBAL)
+
+from openai import OpenAI  # noqa: E402
+from scigym.api import LLM  # noqa: E402
+from scigym.controller import Controller  # noqa: E402
+from scigym.data import SBML  # noqa: E402
+from scigym.eval.utils import extract_reaction_hashes  # noqa: E402
 
 
 class OpenAICompatible(LLM):
