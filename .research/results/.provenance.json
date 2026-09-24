@@ -31,6 +31,22 @@
         ".research/results/gpt-4.1-mini/instances.json": "74bc0ed16132d35f9c427a5311b0a10c20fbc246c2275a9df84b63287709124c",
         ".research/results/gpt-4.1-mini/metrics.json": "26f77e6c1ec7683c251331403592d9f6f4affb1ec0db6a8c1846c2607a9becb3"
       }
+    },
+    "gemini-2.5-flash": {
+      "execution_id": "2dd9448e-9ac1-4ab2-9248-2924d63e9132",
+      "backend": "seyval",
+      "commit_hash": "78add4dbc882cceb0f78b348297dc660440d1763",
+      "overrides": {
+        "run_id": "gemini-2.5-flash",
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gemini-2.5-flash/eval_inputs/binary_classification.json": "4c669749499498a9feceb08d3a87eb75a154c53eade98b2f85b4bb8a45954f4f",
+        ".research/results/gemini-2.5-flash/evaluation/binary_classification.json": "c9898ecd5780dc28343a1a246f92b8192f3652f87b4766b102c80df8b55f28db",
+        ".research/results/gemini-2.5-flash/instances.json": "0d75a1cfd62d7b930e250bb31c69b2c086df3bb35f5e525c497079e5c2bef1d6",
+        ".research/results/gemini-2.5-flash/metrics.json": "4166f821515e12e38ffb58ed34969dc223cde8a91e7162db5b44ff20e8e25a07"
+      }
     }
   }
 }
