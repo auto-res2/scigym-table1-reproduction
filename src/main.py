@@ -28,6 +28,8 @@ def run_instance(cfg, run_dir, instance):
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "stdout.txt", "w") as log:
         subprocess.run([sys.executable, "-m", "src.train", json.dumps(args)], stdout=log, stderr=subprocess.STDOUT)
+    if not (out / "evaluation.json").exists():  # 失敗した run の作業ディレクトリは残らないので原因を標準出力へ
+        print(f"[{instance.name}] no evaluation.json; log tail:", *(out / "stdout.txt").read_text().splitlines()[-25:], sep="\n  ")
 
 
 def cli_args():
