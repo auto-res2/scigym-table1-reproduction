@@ -15,6 +15,22 @@
         ".research/results/gpt-4.1/instances.json": "fbfe80008ae82220997c1d46babbc6828bd864173d9970bb8fe7450ce884b8d2",
         ".research/results/gpt-4.1/metrics.json": "66054b8f864bf05e22159199b9efd9fde1597fd98bc6cf079955722e332dd95a"
       }
+    },
+    "gpt-4.1-mini": {
+      "execution_id": "06d48a31-a50b-4c21-8494-4b3a7d575592",
+      "backend": "seyval",
+      "commit_hash": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+      "overrides": {
+        "run_id": "gpt-4.1-mini",
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gpt-4.1-mini/eval_inputs/binary_classification.json": "0fd7634ae567cdc119f3a49e62aa7909cc5c3eebb1c29334056080d86c9e03e2",
+        ".research/results/gpt-4.1-mini/evaluation/binary_classification.json": "ae71cc071f3221043e3fdc65eb7e2f620d972829bdbbac44c26369da42e5ba36",
+        ".research/results/gpt-4.1-mini/instances.json": "74bc0ed16132d35f9c427a5311b0a10c20fbc246c2275a9df84b63287709124c",
+        ".research/results/gpt-4.1-mini/metrics.json": "26f77e6c1ec7683c251331403592d9f6f4affb1ec0db6a8c1846c2607a9becb3"
+      }
     }
   }
 }

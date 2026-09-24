@@ -1,0 +1,39 @@
+{
+  "curves": {},
+  "inputs_summary": {
+    "n_examples": 1171.0
+  },
+  "metrics": {
+    "accuracy": 0.1443210930828352,
+    "balanced_accuracy": 0.11311914323962517,
+    "f1": 0.25223880597014925,
+    "matthews_corrcoef": -0.7438051823538574,
+    "precision": 0.28499156829679595,
+    "recall": 0.22623828647925034
+  },
+  "omitted_optional_inputs": [
+    "probabilities"
+  ],
+  "provenance": {
+    "inputs_sha256": "ea062059a3e57bbdd3603f5daeb57520c758a61e3c35c2143e894b5c554ea8bf",
+    "task_signature": "binary_classification/v1@0db1a6a525b6",
+    "versions": {
+      "airas-eval": "0.10.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.7.2"
+    }
+  },
+  "skipped": {
+    "missing_dependency": {},
+    "missing_optional_input": [
+      "auroc",
+      "average_precision",
+      "log_loss",
+      "brier_score",
+      "expected_calibration_error"
+    ],
+    "not_applicable": {},
+    "undefined_on_data": {}
+  },
+  "task_type": "binary_classification"
+}
