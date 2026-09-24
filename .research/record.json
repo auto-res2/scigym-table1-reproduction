@@ -29,22 +29,60 @@
         {
           "id": "s1.p1",
           "node_type": "setup",
-          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M)."
+          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M).",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "a806549dfabce0bb87883035528923eb61c6b8da81496a9095d6ec4e45b86a8e",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p2",
           "node_type": "setup",
-          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks."
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks.",
+          "judgments": [
+            {
+              "text_sha256": "644e3f8f72efc1074567fb97ecf740efd45b4a631c5ea078db6c3e453850faa8",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p3",
           "node_type": "setup",
-          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark)."
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark).",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p4",
           "node_type": "setup",
-          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure."
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure.",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p5",
@@ -54,27 +92,63 @@
         {
           "id": "s1.p6",
           "node_type": "claim",
-          "quote": "Our results show that across all model families, pro variants consistently outperform their mini counterparts, with both lower STE errors and higher RMS scores."
+          "quote": "Our results show that across all model families, pro variants consistently outperform their mini counterparts, with both lower STE errors and higher RMS scores.",
+          "judgments": [
+            {
+              "text_sha256": "967c1e28d588f03d814700286737387f249a743c686e7ae4568200563043fe5f",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p7",
           "node_type": "claim",
-          "quote": "Among all models evaluated, Gemini-Pro achieved the best overall performance."
+          "quote": "Among all models evaluated, Gemini-Pro achieved the best overall performance.",
+          "judgments": [
+            {
+              "text_sha256": "967c1e28d588f03d814700286737387f249a743c686e7ae4568200563043fe5f",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p8",
           "node_type": "definition",
-          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers."
+          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers.",
+          "judgments": [
+            {
+              "text_sha256": "d1847a8d5d289becac7844cb6763f0818301c693931eab8db81d7525a9669099",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately describes the definition of RMS and its stricter version given in the original passage, and refers to it as also considering a version that requires matching modifiers, consistent with the source."
+            }
+          ]
         },
         {
           "id": "s1.p9",
           "node_type": "definition",
-          "quote": "We employ the Symmetric Mean Absolute Percentage Error (SMAPE) (Makridakis, 1993), which normalizes errors relative to magnitude."
+          "quote": "We employ the Symmetric Mean Absolute Percentage Error (SMAPE) (Makridakis, 1993), which normalizes errors relative to magnitude.",
+          "judgments": [
+            {
+              "text_sha256": "d1847a8d5d289becac7844cb6763f0818301c693931eab8db81d7525a9669099",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s1.p10",
           "node_type": "result",
-          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances."
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances.",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         }
       ]
     },
@@ -100,17 +174,45 @@
         {
           "id": "s2.p1",
           "node_type": "setup",
-          "quote": "temperature: 1.0"
+          "quote": "temperature: 1.0",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text claims that the evaluation was done with temperature 1.0, and the source passage (a config) shows 'temperature: 1.0', which supports this statement."
+            },
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The config file explicitly states 'temperature: 1.0', exactly as used in the citing text; no qualifiers in context are omitted or reversed."
+            }
+          ]
         },
         {
           "id": "s2.p2",
           "node_type": "setup",
-          "quote": "max_iterations: 5"
+          "quote": "max_iterations: 5",
+          "judgments": [
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         },
         {
           "id": "s2.p3",
           "node_type": "setup",
-          "quote": "eval_debug_rounds: 5"
+          "quote": "eval_debug_rounds: 5",
+          "judgments": [
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
         }
       ]
     }
