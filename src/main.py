@@ -2,6 +2,7 @@
 
 import json
 import math
+import shutil
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -57,6 +58,9 @@ def main():
     results, predicted, reference = {}, [], []
     for instance in instances:
         out = run_dir / "instances" / instance.name
+        # Seyval の出力一覧は 1000 ファイルまで。反復ごとのコードは chat_history.yaml に含まれるので削る
+        shutil.rmtree(out / "codes", ignore_errors=True)
+        (out / "chat_history_readable.txt").unlink(missing_ok=True)
         if not (out / "evaluation.json").exists():
             continue
         results[instance.name] = json.loads((out / "evaluation.json").read_text())
