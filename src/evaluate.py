@@ -14,7 +14,8 @@ def main():
         run_dir = Path(cfg["results_dir"]) / run_id
         rows = list(json.loads((run_dir / "instances.json").read_text()).values())
         n = len(rows)
-        metrics = {"n_instances": n, "n_success": sum(r["success"] for r in rows)}
+        metrics = {"n_instances": n, "n_success": sum(r["success"] for r in rows),
+                   "n_timed_out": sum(r.get("timed_out", False) for r in rows)}
         for key, name in [("observe_smape", "ste"), ("rp_precision", "rms_precision"), ("rp_recall", "rms_recall"),
                           ("rp_f1", "rms_f1"), ("rpm_precision", "rmsm_precision"),
                           ("rpm_recall", "rmsm_recall"), ("rpm_f1", "rmsm_f1")]:

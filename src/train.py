@@ -60,14 +60,24 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     controller = Controller(
         path_to_sbml_cfg=cfg["instance_dir"],
-        max_iterations=cfg["max_iterations"],
+        max_iterations=cfg.get("max_iterations", 0),
         test_memorize=False,
         output_directory=str(out),
         experiment_actions_path="prompts/experiment_actions_perturb.md",
         customized_functions_path="prompts/customized_functions_sim.md",
-        eval_debug_rounds=cfg["eval_debug_rounds"],
-        temperature=cfg["temperature"],
+        eval_debug_rounds=cfg.get("eval_debug_rounds", 0),
+        temperature=cfg.get("temperature", 1.0),
     )
+    if cfg.get("score_partial"):  # 3 試行とも終わらなかった件。公式 _save_results の final_evaluation 無しの経路と同じ採点
+        controller.initialize_agent(None)
+        evaluation = controller.evaluator(pred_sbml=controller.incomplete_model).to_dict()
+        evaluation["success"] = False
+        (out / "evaluation.json").write_text(json.dumps(evaluation, indent=4))
+        (out / "reactions.json").write_text(json.dumps({
+            "missing": [str(h) for h in sorted(controller.evaluator.missing_rp_hashes)],
+            "added": [], "input_tokens": 0, "output_tokens": 0, "timed_out": True,
+        }))
+        return
     llm = OpenAICompatible(
         model_name=cfg["model"],
         api_key="",

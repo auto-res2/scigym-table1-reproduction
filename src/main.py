@@ -27,8 +27,12 @@ def run_instance(cfg, run_dir, instance):
         "max_tokens": cfg.max_tokens,
     }
     out.mkdir(parents=True, exist_ok=True)
-    with open(out / "stdout.txt", "w") as log:
-        subprocess.run([sys.executable, "-m", "src.train", json.dumps(args)], stdout=log, stderr=subprocess.STDOUT)
+    with open(out / "stdout.txt", "a") as log:
+        try:
+            subprocess.run([sys.executable, "-m", "src.train", json.dumps(args)], stdout=log, stderr=subprocess.STDOUT,
+                           timeout=cfg.instance_timeout)
+        except subprocess.TimeoutExpired:
+            print(f"[{instance.name}] killed after {cfg.instance_timeout}s", file=log)
     if not (out / "evaluation.json").exists():  # 失敗した run の作業ディレクトリは残らないので原因を標準出力へ
         print(f"[{instance.name}] no evaluation.json; log tail:", *(out / "stdout.txt").read_text().splitlines()[-25:], sep="\n  ")
 
@@ -55,6 +59,12 @@ def main():
     for _ in range(3):
         with ThreadPoolExecutor(cfg.workers) as pool:
             list(pool.map(lambda p: run_instance(cfg, run_dir, p), instances))
+    # 3 試行とも終わらなかった件は、公式の「有効な SBML が提出されなかった」場合と同じく不完全 SBML の採点値にする
+    for instance in instances:
+        out = run_dir / "instances" / instance.name
+        if not (out / "evaluation.json").exists():
+            args = {"instance_dir": str(instance), "out_dir": str(out), "score_partial": True}
+            subprocess.run([sys.executable, "-m", "src.train", json.dumps(args)], timeout=600)
     results, predicted, reference = {}, [], []
     for instance in instances:
         out = run_dir / "instances" / instance.name
@@ -66,6 +76,7 @@ def main():
         results[instance.name] = json.loads((out / "evaluation.json").read_text())
         reactions = json.loads((out / "reactions.json").read_text())
         results[instance.name]["tokens"] = [reactions["input_tokens"], reactions["output_tokens"]]
+        results[instance.name]["timed_out"] = reactions.get("timed_out", False)
         missing, added = set(reactions["missing"]), set(reactions["added"])
         for h in sorted(missing | added):
             reference.append(int(h in missing))
