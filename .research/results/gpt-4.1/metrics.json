@@ -1,0 +1,16 @@
+{
+ "n_instances": 137,
+ "n_success": 137,
+ "ste": 0.5080406539411971,
+ "rms_precision": 0.3105802412467798,
+ "rms_recall": 0.2670258370988298,
+ "rms_f1": 0.2718337234265687,
+ "rmsm_precision": 0.19245189117451889,
+ "rmsm_recall": 0.15418259761325448,
+ "rmsm_f1": 0.16143166710780998,
+ "input_tokens": 38206200,
+ "output_tokens": 1229341,
+ "micro_rms_precision": 0.31115107913669066,
+ "micro_rms_recall": 0.23159303882195448,
+ "micro_rms_f1": 0.26554105909439757
+}

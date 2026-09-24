@@ -1,0 +1,20 @@
+{
+  "dirs": {
+    "gpt-4.1": {
+      "execution_id": "75c6df5e-ecd7-4dd5-bb43-454623442db6",
+      "backend": "seyval",
+      "commit_hash": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+      "overrides": {
+        "run_id": "gpt-4.1",
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gpt-4.1/eval_inputs/binary_classification.json": "868c90cbcd38371c7dd05487918ebbe0e12e8cdf7ad39ff17817a7bd47c0cc78",
+        ".research/results/gpt-4.1/evaluation/binary_classification.json": "53da7a26b1c6f90507e4dd94518c870b03e52ffbd4fb4fa09b415311976eb853",
+        ".research/results/gpt-4.1/instances.json": "fbfe80008ae82220997c1d46babbc6828bd864173d9970bb8fe7450ce884b8d2",
+        ".research/results/gpt-4.1/metrics.json": "66054b8f864bf05e22159199b9efd9fde1597fd98bc6cf079955722e332dd95a"
+      }
+    }
+  }
+}
