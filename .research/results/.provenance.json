@@ -47,6 +47,22 @@
         ".research/results/gemini-2.5-flash/instances.json": "0d75a1cfd62d7b930e250bb31c69b2c086df3bb35f5e525c497079e5c2bef1d6",
         ".research/results/gemini-2.5-flash/metrics.json": "4166f821515e12e38ffb58ed34969dc223cde8a91e7162db5b44ff20e8e25a07"
       }
+    },
+    "gemini-2.5-pro": {
+      "execution_id": "36185297-0a71-4130-8140-7d1e58c94375",
+      "backend": "seyval",
+      "commit_hash": "11698d515484975d84b62fbe09f7df654eb0daf8",
+      "overrides": {
+        "run_id": "gemini-2.5-pro",
+        "mode": "full"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gemini-2.5-pro/eval_inputs/binary_classification.json": "9052f5e06187021cd79673c7218ea2208970f2edf6890b1751a2ab9b076c1331",
+        ".research/results/gemini-2.5-pro/evaluation/binary_classification.json": "e7e411ebf82fd82b7211d3108b50a60eee4d9f71543b1314f87e5e4738199aff",
+        ".research/results/gemini-2.5-pro/instances.json": "a104245cd3643f084cbf3776cf7ffb1e6d61c7bcde7359ba1df592c0afd6965e",
+        ".research/results/gemini-2.5-pro/metrics.json": "29915d1d749b32d5ab918f77a05dd8393bf9bd502ff4edad591ef65d706dcca4"
+      }
     }
   }
 }
