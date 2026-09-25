@@ -14,8 +14,6 @@ import yaml
 
 def run_instance(cfg, run_dir, instance):
     out = run_dir / "instances" / instance.name
-    if (out / "reactions.json").exists() and json.loads((out / "reactions.json").read_text()).get("timed_out"):
-        (out / "evaluation.json").unlink(missing_ok=True)  # フォールバック採点の件は、前の run の出力を持ち込んだときにやり直す
     if (out / "evaluation.json").exists():
         return
     args = {
