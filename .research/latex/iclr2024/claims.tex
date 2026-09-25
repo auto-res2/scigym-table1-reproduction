@@ -9,29 +9,29 @@
   \emph{Cites:} \texttt{\detokenize{s1.p5}}, \texttt{\detokenize{s1.p10}}, \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p2}}, \texttt{\detokenize{s1.p7}}; criterion: \texttt{\detokenize{s1.p5}}; \texttt{\detokenize{d1}}: \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p4}}, \texttt{\detokenize{s2.p1}}; \texttt{\detokenize{gemini-2.5-pro}}: \texttt{\detokenize{s1.p1}}.
   \emph{Criterion:} \texttt{\detokenize{gemini-2.5-pro}}.\texttt{\detokenize{ste}} $-$ 0.3212 $\leq 0.05$.
   \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する).
-  \emph{Observed:} pending.
-  \emph{Verdict:} pending.
+  \emph{Observed:} 0.0935808.
+  \emph{Verdict:} refuted.
 \item[\textbf{C2}] 現行の Gemini-2.5-Flash（google/gemini-2.5-flash）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4181 を 0.05 より大きくは上回らない。
   \emph{Rationale:} Gemini 系の mini 変種の行が再現されることで、h1 の Gemini-2.5-Flash 行を担い、c1 と合わせて Gemini 系の pro / mini の関係が論文どおりかを読めるようにする。
   \emph{Cites:} \texttt{\detokenize{s1.p5}}, \texttt{\detokenize{s1.p10}}, \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p2}}, \texttt{\detokenize{s1.p6}}; criterion: \texttt{\detokenize{s1.p5}}; \texttt{\detokenize{d2}}: \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p4}}, \texttt{\detokenize{s2.p1}}; \texttt{\detokenize{gemini-2.5-flash}}: \texttt{\detokenize{s1.p1}}.
   \emph{Criterion:} \texttt{\detokenize{gemini-2.5-flash}}.\texttt{\detokenize{ste}} $-$ 0.4181 $\leq 0.05$.
   \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する).
   \emph{Observed:} 0.0284183.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{C3}] GPT-4.1（openai/gpt-4.1、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4611 を 0.05 より大きくは上回らない。
   \emph{Rationale:} 論文と同じ日付スナップショットが使える唯一の pro モデルであり、モデル版の差を含まない最も純粋な再現条件として h1 の GPT-4.1 行を担う。
   \emph{Cites:} \texttt{\detokenize{s1.p5}}, \texttt{\detokenize{s1.p10}}, \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p2}}; criterion: \texttt{\detokenize{s1.p5}}; \texttt{\detokenize{d3}}: \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p4}}, \texttt{\detokenize{s2.p1}}; \texttt{\detokenize{gpt-4.1}}: \texttt{\detokenize{s1.p1}}.
   \emph{Criterion:} \texttt{\detokenize{gpt-4.1}}.\texttt{\detokenize{ste}} $-$ 0.4611 $\leq 0.05$.
   \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する).
   \emph{Observed:} 0.0469407.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \item[\textbf{C4}] GPT-4.1-mini（openai/gpt-4.1-mini、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.6007 を 0.05 より大きくは上回らない。
   \emph{Rationale:} 同じスナップショットが使える mini モデルの行を担い、c3 と合わせて OpenAI 系の pro / mini の関係が論文どおりかを読めるようにする。
   \emph{Cites:} \texttt{\detokenize{s1.p5}}, \texttt{\detokenize{s1.p10}}, \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p2}}, \texttt{\detokenize{s1.p6}}; criterion: \texttt{\detokenize{s1.p5}}; \texttt{\detokenize{d4}}: \texttt{\detokenize{s1.p3}}, \texttt{\detokenize{s1.p4}}, \texttt{\detokenize{s2.p1}}; \texttt{\detokenize{gpt-4.1-mini}}: \texttt{\detokenize{s1.p1}}.
   \emph{Criterion:} \texttt{\detokenize{gpt-4.1-mini}}.\texttt{\detokenize{ste}} $-$ 0.6007 $\leq 0.05$.
   \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する).
   \emph{Observed:} 0.00101829.
-  \emph{Verdict:} pending.
+  \emph{Verdict:} supported.
 \end{enumerate}
 \noindent\emph{Assumed, so that the claims together imply H1:}
 \begin{itemize}
