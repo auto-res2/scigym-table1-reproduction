@@ -85,9 +85,28 @@ sanity は 1 件（BIOMD0000000027）を 2 反復で走らせて配管を確か�
 
 \section{結果}
 \label{sec:results}
-表~\ref{tab:table1} と図~\ref{fig:charts} に、4 モデルそれぞれの SciGym-small 137 件に対する平均 STE と RMS を示す。各値は run の \texttt{metrics.json} から記録経由で流し込んだものである。
+表~\ref{tab:table1}、表~\ref{tab:comparison}、図~\ref{fig:charts} に、4 モデルそれぞれの SciGym-small 137 件に対する平均 STE と RMS を示す。各値は run の \texttt{metrics.json} から記録経由で流し込んだものである。
 
 \input{tables/table1.tex}
+
+表~\ref{tab:comparison} は、表~\ref{tab:table1} の値を論文 Table 1 の値 \cite[s1.p5]{duan-2025-measuring} と並べたものである。本研究の値は記録から流し込み、論文の値は引用として転記した（未検証の印を付けている）。
+
+\begin{table}[t]
+  \centering
+  \caption{本研究の値と論文 Table 1 の値の対比。STE は低いほど、F1 は高いほど良い。「論文」列は Duan et al. \cite[s1.p5]{duan-2025-measuring} の Table 1 からの転記で、本研究の値は表~\ref{tab:table1} と同じ記録由来の値。}
+  \label{tab:comparison}
+  \begin{tabular}{lrrrrrr}
+    \hline
+    & \multicolumn{2}{c}{STE $\downarrow$} & \multicolumn{2}{c}{RMS F1 w/o mod. $\uparrow$} & \multicolumn{2}{c}{RMS F1 w/ mod. $\uparrow$} \\
+    & 本研究 & 論文 & 本研究 & 論文 & 本研究 & 論文 \\
+    \hline
+    Gemini-2.5-Flash & \airasval{gemini-2.5-flash.ste} & \unverified{0.4181} & \airasval{gemini-2.5-flash.rms_f1} & \unverified{0.2005} & \airasval{gemini-2.5-flash.rmsm_f1} & \unverified{0.1217} \\
+    GPT-4.1-mini & \airasval{gpt-4.1-mini.ste} & \unverified{0.6007} & \airasval{gpt-4.1-mini.rms_f1} & \unverified{0.2322} & \airasval{gpt-4.1-mini.rmsm_f1} & \unverified{0.1320} \\
+    Gemini-2.5-Pro & \airasval{gemini-2.5-pro.ste} & \unverified{0.3212} & \airasval{gemini-2.5-pro.rms_f1} & \unverified{0.3383} & \airasval{gemini-2.5-pro.rmsm_f1} & \unverified{0.1817} \\
+    GPT-4.1 & \airasval{gpt-4.1.ste} & \unverified{0.4611} & \airasval{gpt-4.1.rms_f1} & \unverified{0.3038} & \airasval{gpt-4.1.rmsm_f1} & \unverified{0.1740} \\
+    \hline
+  \end{tabular}
+\end{table}
 
 \begin{figure}[t]
   \centering
