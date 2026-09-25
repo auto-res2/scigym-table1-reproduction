@@ -41,7 +41,7 @@ SciGym \citep{duan-2025-measuring} は、単一スキルを測る既存のベン
 
 \section{仮説と予測}
 \label{sec:hypothesis}
-以下は記録（record.json）から生成された仮説・主張・判定基準・予測区間の一覧である。実験後は Observed と Verdict が計測値から埋められる。
+以下は記録（record.json）から生成された仮説（Hypothesis）と主張（Claim）の一覧で、各主張に根拠、引用した箇所、判定基準、予測区間を添える。実験後は Observed と Verdict が計測値から埋められる。引用は本文と同じ形式で、括弧内の s1.p5 などは参考文献の該当箇所（記録に逐語で登録した引用）を指す。
 
 \input{claims.tex}
 
@@ -79,7 +79,7 @@ SciGym-small の 137 件 \cite[s1.p2]{duan-2025-measuring}（Hugging Face \textt
 sanity は 1 件（BIOMD0000000027）を 2 反復で走らせて配管を確かめる。pilot は sorted した 137 件から 14 件おきに選んだ 10 件を 20 反復で走らせ、1 件あたりの所要時間と API コストを測って全件実行の可否を判断する。主張の判定は full（137 件）の結果だけで行い、sanity と pilot の結果は記録に取り込まない。
 
 \paragraph{run と主張の対応.}
-\texttt{gemini-2.5-pro} $\to$ C1、\texttt{gemini-2.5-flash} $\to$ C2、\texttt{gpt-4.1} $\to$ C3、\texttt{gpt-4.1-mini} $\to$ C4。
+\texttt{gemini-2.5-pro} $\to$ Claim 1、\texttt{gemini-2.5-flash} $\to$ Claim 2、\texttt{gpt-4.1} $\to$ Claim 3、\texttt{gpt-4.1-mini} $\to$ Claim 4。
 
 % ===== airas: post-experiment sections, filled once runs exist =====
 
@@ -122,11 +122,11 @@ sanity は 1 件（BIOMD0000000027）を 2 反復で走らせて配管を確か�
 GPT-4.1-mini の平均 STE は \airasval{gpt-4.1-mini.ste}（論文値 \unverified{0.6007}）、
 GPT-4.1 は \airasval{gpt-4.1.ste}（論文値 \unverified{0.4611}）、
 Gemini-2.5-Flash は \airasval{gemini-2.5-flash.ste}（論文値 \unverified{0.4181}）であり、
-C4、C3、C2 はいずれも基準を満たし、差は予測区間 $[-0.05, 0.05]$ の内側に入った。ただし GPT-4.1 の差は約 \unverified{0.047} で、基準の 0.05 にほぼ張り付いている。
-一方 Gemini-2.5-Pro の平均 STE は \airasval{gemini-2.5-pro.ste}（論文値 \unverified{0.3212}）で、差は約 \unverified{0.094} と基準を超え、C1 は反証された。
+Claim 4、Claim 3、Claim 2 はいずれも基準を満たし、差は予測区間 $[-0.05, 0.05]$ の内側に入った。ただし GPT-4.1 の差は約 \unverified{0.047} で、基準の 0.05 にほぼ張り付いている。
+一方 Gemini-2.5-Pro の平均 STE は \airasval{gemini-2.5-pro.ste}（論文値 \unverified{0.3212}）で、差は約 \unverified{0.094} と基準を超え、Claim 1 は反証された。
 
 \paragraph{Gemini-2.5-Pro の実行で起きたこと.}
-C1 の反証は、モデルの能力の差だけでは説明できない。gemini-2.5-pro の run では、実行途中で Vercel AI Gateway のチーム予算上限に達し、以降の API 呼び出しが HTTP 402 で拒否された。その結果、137 件のうち \airasval{gemini-2.5-pro.n_timed_out} 件が 3 回の試行とも途中で終わり、公式評価の「有効な SBML が提出されなかった」場合と同じく不完全 SBML の採点値（\texttt{success=false}）で平均に含まれている（\texttt{n\_success} は \airasval{gemini-2.5-pro.n_success}）。不完全 SBML の STE はモデルごとに 0.3〜0.6 程度になるため、この 25 件が平均を押し上げている。この run をそのまま結果として確定する判断は利用者が行い、記録の notes に追記した。参考として、完走した 112 件だけの平均 STE を \texttt{instances.json} から計算すると \unverified{0.3514} であり、これは論文値との差が 0.030 で基準の内側に入るが、事前登録の判定基準は 137 件平均で定義したため判定には用いない。他の 3 モデルは予算超過の前に完了しており、この影響を受けていない（gemini-2.5-flash では 1 件だけ提出 SBML が無効で \texttt{success=false}、\texttt{n\_success} は \airasval{gemini-2.5-flash.n_success}）。
+Claim 1 の反証は、モデルの能力の差だけでは説明できない。gemini-2.5-pro の run では、実行途中で Vercel AI Gateway のチーム予算上限に達し、以降の API 呼び出しが HTTP 402 で拒否された。その結果、137 件のうち \airasval{gemini-2.5-pro.n_timed_out} 件が 3 回の試行とも途中で終わり、公式評価の「有効な SBML が提出されなかった」場合と同じく不完全 SBML の採点値（\texttt{success=false}）で平均に含まれている（\texttt{n\_success} は \airasval{gemini-2.5-pro.n_success}）。不完全 SBML の STE はモデルごとに 0.3〜0.6 程度になるため、この 25 件が平均を押し上げている。この run をそのまま結果として確定する判断は利用者が行い、記録の notes に追記した。参考として、完走した 112 件だけの平均 STE を \texttt{instances.json} から計算すると \unverified{0.3514} であり、これは論文値との差が 0.030 で基準の内側に入るが、事前登録の判定基準は 137 件平均で定義したため判定には用いない。他の 3 モデルは予算超過の前に完了しており、この影響を受けていない（gemini-2.5-flash では 1 件だけ提出 SBML が無効で \texttt{success=false}、\texttt{n\_success} は \airasval{gemini-2.5-flash.n_success}）。
 
 \paragraph{RMS と順序関係.}
 modifier なしの RMS F1 は、Gemini-2.5-Pro \airasval{gemini-2.5-pro.rms_f1}（論文値 \unverified{0.3383}）、GPT-4.1 \airasval{gpt-4.1.rms_f1}（\unverified{0.3038}）、GPT-4.1-mini \airasval{gpt-4.1-mini.rms_f1}（\unverified{0.2322}）、Gemini-2.5-Flash \airasval{gemini-2.5-flash.rms_f1}（\unverified{0.2005}）であった。pro 2 モデルは論文より低く、mini 2 モデルは論文より高い。差はいずれも 0.06 以内で、事前に予測した $\pm 0.05$ を pro 側でわずかに外れている。
@@ -143,7 +143,7 @@ modifier なしの RMS F1 は、Gemini-2.5-Pro \airasval{gemini-2.5-pro.rms_f1}�
 論文と同じ 2025-04-14 スナップショットを使えた GPT-4.1 と GPT-4.1-mini は、平均 STE が基準の内側に入った。GPT-4.1-mini の差は 0.001 とほぼ一致し、GPT-4.1 は 0.047 で基準ぎりぎりであった。1 回実行の平均 STE の変動を約 0.03 と見積もった事前の予測からすると、GPT-4.1 の差は偶然の範囲としては大きめであり、aarch64 向け libroadrunner 2.7.0 の差や、応答トークン上限の違い（公式 8192、本研究 32768）が影響した可能性は残る。
 
 \paragraph{GA 版 Gemini は Flash では再現し、Pro は判定できなかった.}
-Gemini-2.5-Flash はプレビュー版から GA 版に変わっても基準の内側に入り、RMS F1 は論文より高かった。Gemini-2.5-Pro は予算超過で 25 件が失敗したため、C1 の反証がモデル版の差によるものか、実行側の事故によるものかを本研究のデータでは分離できない。完走 112 件の参考値（STE \unverified{0.3514}）は基準の内側にあり、後者の寄与が大きいと考えられるが、これは事後の部分集合の平均であり、事前登録の判定を置き換えるものではない。予算を増やして 25 件を再実行すれば分離できる。記録は追記のみなので、再実行の結果は別の結果として同じ run に追加され、C1 の判定は変わらないまま併記される。
+Gemini-2.5-Flash はプレビュー版から GA 版に変わっても基準の内側に入り、RMS F1 は論文より高かった。Gemini-2.5-Pro は予算超過で 25 件が失敗したため、Claim 1 の反証がモデル版の差によるものか、実行側の事故によるものかを本研究のデータでは分離できない。完走 112 件の参考値（STE \unverified{0.3514}）は基準の内側にあり、後者の寄与が大きいと考えられるが、これは事後の部分集合の平均であり、事前登録の判定を置き換えるものではない。予算を増やして 25 件を再実行すれば分離できる。記録は追記のみなので、再実行の結果は別の結果として同じ run に追加され、Claim 1 の判定は変わらないまま併記される。
 
 \paragraph{順序関係は保たれた.}
 平均 STE と modifier なし RMS F1 の 4 モデルの順位は論文と一致した。Table 1 の主張のうち「pro が mini を上回る」「Gemini-Pro が最良」という質的な結論は、モデル版・シミュレータ版・実行環境が変わっても保たれたと言える。一方、絶対値は STE で 0.001〜0.094、RMS F1 で 0.03〜0.06 動いた。temperature 1.0 の 1 回実行である以上、Table 1 の値を 0.05 より細かい精度で比較することには意味がないというのが本研究の読みである。
@@ -153,7 +153,7 @@ LLM が書いたコードが \texttt{simulate()} で硬い ODE を解こうと�
 
 \section{結論}
 \label{sec:conclusion}
-SciGym Table 1 の Gemini / OpenAI の 4 行を、公開コードの Controller と現行 API のモデルで事前登録のうえ再現した。GPT-4.1、GPT-4.1-mini、Gemini-2.5-Flash の 3 モデルは平均 STE が論文値 $+0.05$ 以内に収まり、主張 C2〜C4 は支持された。Gemini-2.5-Pro は実行中の API 予算超過で 25 件が失敗したまま確定したため C1 は反証されたが、完走分の参考値は基準の内側にあり、4 モデルの順位は STE・RMS F1 とも論文と一致した。Table 1 の質的な結論は再現し、絶対値は 1 回実行の揺らぎと実行環境の差の範囲で動く、というのが本研究の結論である。
+SciGym Table 1 の Gemini / OpenAI の 4 行を、公開コードの Controller と現行 API のモデルで事前登録のうえ再現した。GPT-4.1、GPT-4.1-mini、Gemini-2.5-Flash の 3 モデルは平均 STE が論文値 $+0.05$ 以内に収まり、Claim 2〜4 は支持された。Gemini-2.5-Pro は実行中の API 予算超過で 25 件が失敗したまま確定したため Claim 1 は反証されたが、完走分の参考値は基準の内側にあり、4 モデルの順位は STE・RMS F1 とも論文と一致した。Table 1 の質的な結論は再現し、絶対値は 1 回実行の揺らぎと実行環境の差の範囲で動く、というのが本研究の結論である。
 
 \section*{データの利用可能性}
 記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、各 run の結果と provenance は同じリポジトリに含まれる。
