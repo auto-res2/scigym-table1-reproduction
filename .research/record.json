@@ -252,6 +252,66 @@
                   "params": {
                     "mode": "full"
                   },
+                  "results": [
+                    {
+                      "id": "36185297-0a71-4130-8140-7d1e58c94375",
+                      "commit": "11698d515484975d84b62fbe09f7df654eb0daf8",
+                      "eval_inputs": {
+                        "path": ".research/results/gemini-2.5-pro/eval_inputs/binary_classification.json",
+                        "sha256": "9052f5e06187021cd79673c7218ea2208970f2edf6890b1751a2ab9b076c1331"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "9277da1dfc9ed85ab3b542c91f6d40217973d48f1ff2fc520904dd780a6b40a3",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.17906066536203522,
+                          "balanced_accuracy": 0.12248995983935743,
+                          "f1": 0.30373443983402487,
+                          "matthews_corrcoef": -0.6733065804554523,
+                          "precision": 0.39956331877729256,
+                          "recall": 0.24497991967871485
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1022.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 112,
+                        "n_timed_out": 25,
+                        "ste": 0.4147808242008851,
+                        "rms_precision": 0.31441605839416065,
+                        "rms_recall": 0.27541999768277137,
+                        "rms_f1": 0.2843692672481853,
+                        "rmsm_precision": 0.17069864442127214,
+                        "rmsm_recall": 0.13088576063028615,
+                        "rmsm_f1": 0.14264699209954682,
+                        "input_tokens": 32346906,
+                        "output_tokens": 3964227,
+                        "micro_rms_precision": 0.39956331877729256,
+                        "micro_rms_recall": 0.24497991967871485,
+                        "micro_rms_f1": 0.30373443983402487
+                      }
+                    }
+                  ],
                   "cites_passages": [
                     "s1.p1"
                   ]
@@ -271,6 +331,8 @@
             "s1.p2",
             "s1.p7"
           ],
+          "verified": true,
+          "verdict": "refuted",
           "criterion": {
             "metric": "ste",
             "subject": "gemini-2.5-pro",
@@ -303,6 +365,65 @@
                   "params": {
                     "mode": "full"
                   },
+                  "results": [
+                    {
+                      "id": "2dd9448e-9ac1-4ab2-9248-2924d63e9132",
+                      "commit": "78add4dbc882cceb0f78b348297dc660440d1763",
+                      "eval_inputs": {
+                        "path": ".research/results/gemini-2.5-flash/eval_inputs/binary_classification.json",
+                        "sha256": "4c669749499498a9feceb08d3a87eb75a154c53eade98b2f85b4bb8a45954f4f"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "b908c9206fc475d47c589175e493ce704af44cc0f6edd4dbc7efe14538468cba",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.13309024612579762,
+                          "balanced_accuracy": 0.09772423025435073,
+                          "f1": 0.23491552695092519,
+                          "matthews_corrcoef": -0.7534772065900299,
+                          "precision": 0.29435483870967744,
+                          "recall": 0.19544846050870146
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1097.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 136,
+                        "ste": 0.446518293359178,
+                        "rms_precision": 0.28362877997914504,
+                        "rms_recall": 0.23269899200556132,
+                        "rms_f1": 0.24731653180558294,
+                        "rmsm_precision": 0.15990615224191865,
+                        "rmsm_recall": 0.12264511644073686,
+                        "rmsm_f1": 0.1343831553685568,
+                        "input_tokens": 48858545,
+                        "output_tokens": 7738168,
+                        "micro_rms_precision": 0.29435483870967744,
+                        "micro_rms_recall": 0.19544846050870146,
+                        "micro_rms_f1": 0.23491552695092519
+                      }
+                    }
+                  ],
                   "cites_passages": [
                     "s1.p1"
                   ]
@@ -322,6 +443,8 @@
             "s1.p2",
             "s1.p6"
           ],
+          "verified": true,
+          "verdict": "supported",
           "criterion": {
             "metric": "ste",
             "subject": "gemini-2.5-flash",
@@ -354,6 +477,65 @@
                   "params": {
                     "mode": "full"
                   },
+                  "results": [
+                    {
+                      "id": "75c6df5e-ecd7-4dd5-bb43-454623442db6",
+                      "commit": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+                      "eval_inputs": {
+                        "path": ".research/results/gpt-4.1/eval_inputs/binary_classification.json",
+                        "sha256": "868c90cbcd38371c7dd05487918ebbe0e12e8cdf7ad39ff17817a7bd47c0cc78"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "ce5553eb4eb8a61dc3be40cf3a97739c4aec9f8f90496838f0a6bcd6e490be86",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.15309734513274337,
+                          "balanced_accuracy": 0.11579651941097724,
+                          "f1": 0.26554105909439757,
+                          "matthews_corrcoef": -0.7275412744245865,
+                          "precision": 0.31115107913669066,
+                          "recall": 0.23159303882195448
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1130.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 137,
+                        "ste": 0.5080406539411971,
+                        "rms_precision": 0.3105802412467798,
+                        "rms_recall": 0.2670258370988298,
+                        "rms_f1": 0.2718337234265687,
+                        "rmsm_precision": 0.19245189117451889,
+                        "rmsm_recall": 0.15418259761325448,
+                        "rmsm_f1": 0.16143166710780998,
+                        "input_tokens": 38206200,
+                        "output_tokens": 1229341,
+                        "micro_rms_precision": 0.31115107913669066,
+                        "micro_rms_recall": 0.23159303882195448,
+                        "micro_rms_f1": 0.26554105909439757
+                      }
+                    }
+                  ],
                   "cites_passages": [
                     "s1.p1"
                   ]
@@ -372,6 +554,8 @@
             "s1.p3",
             "s1.p2"
           ],
+          "verified": true,
+          "verdict": "supported",
           "criterion": {
             "metric": "ste",
             "subject": "gpt-4.1",
@@ -404,6 +588,65 @@
                   "params": {
                     "mode": "full"
                   },
+                  "results": [
+                    {
+                      "id": "06d48a31-a50b-4c21-8494-4b3a7d575592",
+                      "commit": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+                      "eval_inputs": {
+                        "path": ".research/results/gpt-4.1-mini/eval_inputs/binary_classification.json",
+                        "sha256": "0fd7634ae567cdc119f3a49e62aa7909cc5c3eebb1c29334056080d86c9e03e2"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "ea062059a3e57bbdd3603f5daeb57520c758a61e3c35c2143e894b5c554ea8bf",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.1443210930828352,
+                          "balanced_accuracy": 0.11311914323962517,
+                          "f1": 0.25223880597014925,
+                          "matthews_corrcoef": -0.7438051823538574,
+                          "precision": 0.28499156829679595,
+                          "recall": 0.22623828647925034
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1171.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 137,
+                        "ste": 0.6017182919967209,
+                        "rms_precision": 0.29148284805219116,
+                        "rms_recall": 0.25510079944386516,
+                        "rms_f1": 0.25877700968941847,
+                        "rmsm_precision": 0.1838881313333868,
+                        "rmsm_recall": 0.14119742787626,
+                        "rmsm_f1": 0.15107800808914904,
+                        "input_tokens": 38253239,
+                        "output_tokens": 873529,
+                        "micro_rms_precision": 0.28499156829679595,
+                        "micro_rms_recall": 0.22623828647925034,
+                        "micro_rms_f1": 0.25223880597014925
+                      }
+                    }
+                  ],
                   "cites_passages": [
                     "s1.p1"
                   ]
@@ -423,6 +666,8 @@
             "s1.p2",
             "s1.p6"
           ],
+          "verified": true,
+          "verdict": "supported",
           "criterion": {
             "metric": "ste",
             "subject": "gpt-4.1-mini",
