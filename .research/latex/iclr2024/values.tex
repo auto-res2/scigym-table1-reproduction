@@ -5,7 +5,7 @@
 \newcommand{\airasval}[1]{\@ifundefined{airasval@#1}{\airasvalmissing{#1}}{\csname airasval@#1\endcsname}}
 \newcommand{\airasvalmissing}[1]{\textbf{??airasval:\detokenize{#1}??}}
 \providecommand{\unverified}[1]{#1}
-\newcommand{\airasrecordlink}[1]{\ifdefined\href\href{https://github.com/auto-res2/scigym-table1-reproduction/blob/fa3cab0ba15750d9c5447903f022d8f83c98dae3/.research/record.json}{#1}\else#1\fi}
+\newcommand{\airasrecordlink}[1]{\ifdefined\href\href{https://github.com/auto-res2/scigym-table1-reproduction/blob/e5790ebb6d9f902a5888e4f738ba87534a5f7993/.research/record.json}{#1}\else#1\fi}
 % gpt-4.1-mini.ste = gpt-4.1-mini.ste
 \expandafter\def\csname airasval@gpt-4.1-mini.ste\endcsname{\airasrecordlink{0.601718}}
 % gpt-4.1.ste = gpt-4.1.ste
@@ -32,20 +32,4 @@
 \expandafter\def\csname airasval@gpt-4.1.rmsm_f1\endcsname{\airasrecordlink{0.161432}}
 % gemini-2.5-pro.rmsm_f1 = gemini-2.5-pro.rmsm_f1
 \expandafter\def\csname airasval@gemini-2.5-pro.rmsm_f1\endcsname{\airasrecordlink{0.142647}}
-% gemini-2.5-pro.input_tokens = gemini-2.5-pro.input_tokens
-\expandafter\def\csname airasval@gemini-2.5-pro.input_tokens\endcsname{\airasrecordlink{3.23469e+07}}
-% gemini-2.5-flash.input_tokens = gemini-2.5-flash.input_tokens
-\expandafter\def\csname airasval@gemini-2.5-flash.input_tokens\endcsname{\airasrecordlink{4.88585e+07}}
-% gpt-4.1.input_tokens = gpt-4.1.input_tokens
-\expandafter\def\csname airasval@gpt-4.1.input_tokens\endcsname{\airasrecordlink{3.82062e+07}}
-% gpt-4.1-mini.input_tokens = gpt-4.1-mini.input_tokens
-\expandafter\def\csname airasval@gpt-4.1-mini.input_tokens\endcsname{\airasrecordlink{3.82532e+07}}
-% gemini-2.5-pro.output_tokens = gemini-2.5-pro.output_tokens
-\expandafter\def\csname airasval@gemini-2.5-pro.output_tokens\endcsname{\airasrecordlink{3.96423e+06}}
-% gemini-2.5-flash.output_tokens = gemini-2.5-flash.output_tokens
-\expandafter\def\csname airasval@gemini-2.5-flash.output_tokens\endcsname{\airasrecordlink{7.73817e+06}}
-% gpt-4.1.output_tokens = gpt-4.1.output_tokens
-\expandafter\def\csname airasval@gpt-4.1.output_tokens\endcsname{\airasrecordlink{1.22934e+06}}
-% gpt-4.1-mini.output_tokens = gpt-4.1-mini.output_tokens
-\expandafter\def\csname airasval@gpt-4.1-mini.output_tokens\endcsname{\airasrecordlink{873529}}
 \makeatother
