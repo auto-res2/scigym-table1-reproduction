@@ -3,16 +3,16 @@
 % and fails on any difference, so manual edits always surface.
 \begin{table}[t]
 \centering
-\caption{SciGym-small 137 件における平均 STE（低いほど良い）と Reaction Matching Score（高いほど良い）。論文 Table 1 の Gemini / OpenAI の 4 行に対応する。}
+\caption{SciGym-small 137 件における平均 STE（低いほど良い）と Reaction Matching Score（高いほど良い）。P / R / F1 は適合率 / 再現率 / F1、添字 m は modifier の一致まで要求する厄格版。論文 Table 1 の Gemini / OpenAI の 4 行に対応する。}
 \label{tab:table1}
 \begin{tabular}{lrrrrrrr}
 \hline
- & STE $\downarrow$ & RMS w/ mod. P & RMS w/ mod. R & RMS w/ mod. F1 & RMS w/o mod. P & RMS w/o mod. R & RMS w/o mod. F1 \\
+ & STE $\downarrow$ & P$_{m}$ & R$_{m}$ & F1$_{m}$ & P & R & F1 \\
 \hline
-Gemini-2.5-Flash & 0.4465 & 0.1599 & 0.1226 & 0.1344 & 0.2836 & 0.2327 & 0.2473 \\
-GPT-4.1-mini & 0.6017 & 0.1839 & 0.1412 & 0.1511 & 0.2915 & 0.2551 & 0.2588 \\
-Gemini-2.5-Pro & 0.4148 & 0.1707 & 0.1309 & 0.1426 & 0.3144 & 0.2754 & 0.2844 \\
-GPT-4.1 & 0.5080 & 0.1925 & 0.1542 & 0.1614 & 0.3106 & 0.2670 & 0.2718 \\
+Gemini-2.5-Flash & 0.4465 & 0.160 & 0.123 & 0.134 & 0.284 & 0.233 & 0.247 \\
+GPT-4.1-mini & 0.6017 & 0.184 & 0.141 & 0.151 & 0.291 & 0.255 & 0.259 \\
+Gemini-2.5-Pro & 0.4148 & 0.171 & 0.131 & 0.143 & 0.314 & 0.275 & 0.284 \\
+GPT-4.1 & 0.5080 & 0.192 & 0.154 & 0.161 & 0.311 & 0.267 & 0.272 \\
 \hline
 \end{tabular}
 \end{table}
