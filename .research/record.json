@@ -563,6 +563,107 @@
               "renderer": "vl-convert-python 1.9.0"
             }
           ]
+        },
+        {
+          "path": "rms_f1_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "SciGym-small 137 件の平均 RMS F1（高いほど良い）",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-pro.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-pro.rmsm_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-flash.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-flash.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1-mini.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1-mini.rmsm_f1"
+                }
+              ]
+            },
+            "mark": {
+              "type": "bar",
+              "clip": true
+            },
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "xOffset": {
+                "field": "variant"
+              },
+              "color": {
+                "field": "variant",
+                "type": "nominal",
+                "title": null,
+                "scale": {
+                  "range": [
+                    "#4C78A8",
+                    "#F58518"
+                  ]
+                }
+              },
+              "y": {
+                "field": "f1",
+                "type": "quantitative",
+                "axis": {
+                  "title": "平均 RMS F1"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.4
+                  ]
+                }
+              }
+            }
+          },
+          "renders": [
+            {
+              "renderer": "vl-convert-python 1.9.0"
+            }
+          ]
         }
       ],
       "notes": [
