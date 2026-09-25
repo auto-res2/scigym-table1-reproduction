@@ -844,6 +844,65 @@
               "label": "GPT-4.1-mini"
             }
           ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における平均 STE（低いほど良い）と Reaction Matching Score（高いほど良い）。P / R / F1 は適合率 / 再現率 / F1、添字 m は modifier の一致まで要求する厄格版。論文 Table 1 の Gemini / OpenAI の 4 行に対応する。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "ste",
+              "round": 4
+            },
+            {
+              "header": "P$_{m}$",
+              "ref_path": "rmsm_precision",
+              "round": 3
+            },
+            {
+              "header": "R$_{m}$",
+              "ref_path": "rmsm_recall",
+              "round": 3
+            },
+            {
+              "header": "F1$_{m}$",
+              "ref_path": "rmsm_f1",
+              "round": 3
+            },
+            {
+              "header": "P",
+              "ref_path": "rms_precision",
+              "round": 3
+            },
+            {
+              "header": "R",
+              "ref_path": "rms_recall",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "rms_f1",
+              "round": 3
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            },
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            }
+          ]
         }
       ],
       "charts": [
