@@ -742,6 +742,50 @@
               "label": "GPT-4.1"
             }
           ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の完走件数とトークン消費。n\\_success は有効な SBML が提出された件数、n\\_timed\\_out は 3 試行とも終わらず不完全 SBML の採点値で代用した件数（gemini-2.5-pro の 25 件はゲートウェイの予算超過による HTTP 402）。Gemini の出力トークンには思考トークンを含む。",
+          "columns": [
+            {
+              "header": "n\\_success",
+              "ref_path": "n_success",
+              "round": 0
+            },
+            {
+              "header": "n\\_timed\\_out",
+              "ref_path": "n_timed_out",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            }
+          ]
         }
       ],
       "charts": [
