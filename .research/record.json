@@ -499,6 +499,72 @@
           ]
         }
       ],
+      "charts": [
+        {
+          "path": "ste_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "SciGym-small 137 件の平均 STE（低いほど良い）",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "ste": "metric:gemini-2.5-pro.ste"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "ste": "metric:gemini-2.5-flash.ste"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "ste": "metric:gpt-4.1.ste"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "ste": "metric:gpt-4.1-mini.ste"
+                }
+              ]
+            },
+            "mark": {
+              "type": "bar",
+              "color": "#4C78A8",
+              "clip": true
+            },
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "y": {
+                "field": "ste",
+                "type": "quantitative",
+                "axis": {
+                  "title": "平均 STE"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.7
+                  ]
+                }
+              }
+            }
+          },
+          "renders": [
+            {
+              "renderer": "vl-convert-python 1.9.0"
+            }
+          ]
+        }
+      ],
       "notes": [
         "ギャップ: SciGym 論文（s1）は 6 モデルを各 1 回走らせた 137 件平均を Table 1 として報告しているが、実行間の分散も、別環境・別時点での再現性も示していない。Gemini の 2 モデルは提供終了したプレビュー版で評価されている（s1.p1）。公開コード（s2）の Controller をそのまま使って、現在入手できる同名モデルで同じ数値が戻るかは示されていない。本研究はその再現を、Claude を除く 4 モデルについて事前登録のうえ行う。Claude-3.7-Sonnet と Claude-3.5-Haiku は利用する Vercel AI Gateway に無いため対象外とする。",
         "判定基準と予測区間の根拠: 各 claim は (平均 STE − 論文値) ≤ 0.05 を反証線とする。0.05 は Table 1 の隣り合うモデル間の最小差（Gemini-2.5-Pro 0.3212 と Claude-3.7-Sonnet 0.3615 の 0.04）とほぼ同じで、これより大きく外れると Table 1 の順位付けの粒度で再現に失敗したことになる。1 件の STE は [0, 1] の値で標準偏差を 0.25 程度と見積もると 137 件平均の標準誤差は約 0.02 であり、2 つの 1 回実行の差の標準誤差は約 0.03 になる。予測区間は ±0.05 とし、criterion を満たしつつ区間を下に外れた場合（現行版が論文より大きく良い）はそのとおり報告する。基準は片側（悪化方向）なので、GA 版 Gemini が論文より良い結果を出しても claim は成立する。",
