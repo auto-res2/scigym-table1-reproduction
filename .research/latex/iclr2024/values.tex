@@ -5,7 +5,7 @@
 \newcommand{\airasval}[1]{\@ifundefined{airasval@#1}{\airasvalmissing{#1}}{\csname airasval@#1\endcsname}}
 \newcommand{\airasvalmissing}[1]{\textbf{??airasval:\detokenize{#1}??}}
 \providecommand{\unverified}[1]{#1}
-\newcommand{\airasrecordlink}[1]{\ifdefined\href\href{https://github.com/auto-res2/scigym-table1-reproduction/blob/bc95eaf3109a041e79a780e081af05903426ea8e/.research/record.json}{#1}\else#1\fi}
+\newcommand{\airasrecordlink}[1]{\ifdefined\href\href{https://github.com/auto-res2/scigym-table1-reproduction/blob/7e769eaa34ac6d8b5d39fc1bb33a0a3553f7494c/.research/record.json}{#1}\else#1\fi}
 % gemini-2.5-flash.ste = gemini-2.5-flash.ste
 \expandafter\def\csname airasval@gemini-2.5-flash.ste\endcsname{\airasrecordlink{0.446518}}
 % gemini-2.5-flash.rms_f1 = gemini-2.5-flash.rms_f1
