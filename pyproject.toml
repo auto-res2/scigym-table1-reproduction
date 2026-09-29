@@ -25,4 +25,4 @@ exclude-dependencies = ["rrplugins", "phrasedml", "python-libnuml", "python-libc
 scigym = { git = "https://github.com/h4duan/SciGym", rev = "88a7b93609e35b6ecb4eb343d816d6ff09256c6a" }
 
 [dependency-groups]
-eval = ["airas-eval==0.10.0"]
+eval = ["airas-eval==0.11.1"]
